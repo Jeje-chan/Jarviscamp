@@ -34,4 +34,16 @@ class Task extends Model
     public static function getAll(){
         return self::$tasks;
     }
+    public static function getById($id)
+    {
+        
+        foreach (self::$tasks as $task) {
+            if ($task['id'] == $id) {
+                return $task;
+            }
+        }
+
+        return null;
+
+    }
 } 

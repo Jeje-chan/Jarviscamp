@@ -12,4 +12,15 @@ class TaskController extends Controller
 
         return view('tasks.index',['tasks' => $tasks,]);
     }
+    public function show($id)
+    {
+        $task = Task::getById($id);
+
+        if (!$task) {
+            return redirect()->route('task.index')->with('error', 'Tugas tidak ada');
+        }
+
+        return view('tasks.detail', compact('task'));
+
+    }
 }

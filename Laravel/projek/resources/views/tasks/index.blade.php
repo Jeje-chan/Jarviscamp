@@ -24,7 +24,7 @@
             <td>{{ \Carbon\Carbon::parse($task['deadline'])->format('d F Y') }}</td>
             <td>{{ $task['status'] }}</td>
             <td>
-                <a href="" class="btn btn-primary">View</a>
+                <a href="/task/{{ $task['id'] }}" class="btn btn-primary">View</a>
                 <a href="" class="btn btn-warning">Edit</a>
                 <a href="" class="btn btn-danger">Delete</a>
             </td>

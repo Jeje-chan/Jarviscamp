@@ -33,4 +33,5 @@ Route::get('/users', function () {
 });
 
 
-// Route::get('/', [TaskController::class, 'index']);
+Route::get('/home', [TaskController::class, 'index']);
+Route::get('/task/{id}', [TaskController::class, 'show']);
