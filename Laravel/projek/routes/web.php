@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,13 +27,7 @@ Route::get('/', function () {
     return view('content.dashboard', $data);
 });
 
-Route::get('/users', function () {
-    $data = [
-        "title" => "Users"
-    ];
-    return view('content.users', $data);
-});
-
-
+Route::get('/users', [UserController::class, 'index']);
+Route::resource('/categories', [CategoryController::class]);
 Route::get('/home', [TaskController::class, 'index']);
 Route::get('/task/{id}', [TaskController::class, 'show']);
